@@ -5,7 +5,6 @@ from money_machine import MoneyMachine
 manu = Menu()
 cm = CoffeeMaker()
 mm = MoneyMachine()
-# mi = MenuItem()
 
 cm_continue = True
 
@@ -19,7 +18,8 @@ while cm_continue:
     else:
         drink = manu.find_drink(user_input)
         if cm.is_resource_sufficient(drink):
-            mm.make_payment(drink.cost)
+            if mm.make_payment(drink.cost):
+                cm.make_coffee(drink)
 
 
 
