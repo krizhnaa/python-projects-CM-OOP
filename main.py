@@ -16,14 +16,12 @@ while cm_continue:
     elif user_input == 'report':
         cm.report()
         mm.report()
-        user_input = input(f'What would you like? ( {manu.get_items()} ) : ')
+    else:
+        drink = manu.find_drink(user_input)
+        if cm.is_resource_sufficient(drink):
+            mm.make_payment(drink.cost)
 
 
-    can_mk = cm.is_resource_sufficient(manu.find_drink(user_input))
-
-    # if can_mk == True:
-    #     mm.make_payment()
-    # print(mi.cost)
 
 
 
